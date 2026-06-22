@@ -1,660 +1,726 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lapoche LLP — Premium Fashion & Lifestyle</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Poche — Artisan Jute Bags</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lapoche.css">
 </head>
 <body>
 
-<!-- ===== TOP NAVIGATION ===== -->
-<nav class="topnav">
-  <div class="logo">Lapoche <span>LLP</span></div>
-
-  <div class="search-bar">
-    <span class="icon">🔍</span>
-    <input type="text" placeholder="Search products, brands, categories…" id="searchInput">
-  </div>
-
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showSection('home')">La<span>&nbsp;</span>Poche</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showSection('shop')" id="nav-shop">Shop</a></li>
+    <li><a href="#" onclick="showSection('about')" id="nav-about">About</a></li>
+    <li><a href="#" onclick="showSection('dashboard')" id="nav-dashboard">Dashboard</a></li>
+  </ul>
   <div class="nav-actions">
-    <button class="nav-btn" onclick="showPage('account')">👤 Account</button>
-    <button class="nav-btn" onclick="showPage('wishlist')">❤️ Wishlist <span class="cart-badge" id="wishBadge">0</span></button>
-    <button class="nav-btn accent" onclick="showPage('cart')">🛒 Cart <span class="cart-badge" id="cartBadge">0</span></button>
-    <button class="nav-btn" onclick="showPage('admin-dashboard')">⚙️ Admin</button>
+    <button class="btn-nav" onclick="showSection('shop')">Shop Now</button>
   </div>
 </nav>
 
-<!-- ===== CATEGORY NAV ===== -->
-<nav class="catnav" id="catnav">
-  <a href="#" onclick="showShop('all')" class="active">All</a>
-  <a href="#" onclick="showShop('bags')">👜 Bags & Pouches</a>
-  <a href="#" onclick="showShop('wallets')">💼 Wallets</a>
-  <a href="#" onclick="showShop('belts')">🔗 Belts</a>
-  <a href="#" onclick="showShop('accessories')">💍 Accessories</a>
-  <a href="#" onclick="showShop('travel')">🧳 Travel Gear</a>
-  <a href="#" onclick="showShop('gifting')">🎁 Gifting</a>
-  <a href="#" onclick="showPage('admin-dashboard')">🏪 Seller Panel</a>
-</nav>
-
-<!-- ============================== HOME PAGE ============================== -->
-<div class="page active" id="page-home">
-
-  <!-- Hero Banner -->
+<!-- HOME -->
+<section id="home" class="active">
   <div class="hero">
-    <div class="hero-content">
-      <div class="hero-tag">New Collection 2024</div>
-      <h1>Crafted for Every Journey</h1>
-      <p>Discover premium leather bags, wallets & accessories for the modern professional. Free shipping on orders above ₹999.</p>
-      <div class="flex gap-2">
-        <button class="btn btn-accent" onclick="showPage('shop')">Shop Now →</button>
-        <button class="btn btn-outline" onclick="showShop('new')">New Arrivals</button>
+    <div class="hero-text">
+      <p class="hero-eyebrow">Handcrafted in India · Est. 2019</p>
+      <h1 class="hero-headline">Carry<br>something<br><em>honest.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">La Poche makes jute bags that age beautifully — each one woven by hand, designed to last a lifetime, and made without shortcuts.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="showSection('shop')">Explore the Collection</button>
+        <button class="btn-outline" onclick="showSection('about')">Our Story</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-texture"></div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">4.8k</span>
+          <span class="stat-label">Bags Sold</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Natural Jute</span>
+        </div>
+      </div>
+      <div class="hero-product-card">
+        <div class="hero-product-img">🧺</div>
+        <div class="product-tag">Bestseller</div>
+        <div class="product-name">The Market Tote</div>
+        <div class="product-price">₹ 1,299</div>
       </div>
     </div>
   </div>
 
-  <div class="main-wrapper">
-
-    <!-- Promo Banners -->
-    <div class="promo-grid mb-3">
-      <div class="promo-card promo-blue" onclick="showShop('bags')">
-        <span class="emoji">👜</span>
-        <div class="promo-tag">Bestsellers</div>
-        <div class="promo-title">Premium Bags</div>
-        <div class="promo-sub">Up to 40% off on select styles</div>
-        <button class="btn btn-accent" style="width:fit-content; font-size:12px; padding:8px 16px;">Shop Now</button>
-      </div>
-      <div class="promo-card promo-amber" onclick="showShop('wallets')">
-        <span class="emoji">💼</span>
-        <div class="promo-tag">New In</div>
-        <div class="promo-title">Slim Wallets</div>
-        <div class="promo-sub">Minimal & elegant</div>
-        <button class="btn" style="background:rgba(255,255,255,0.25);color:white;font-size:12px;padding:7px 14px;border:1px solid rgba(255,255,255,0.4);border-radius:6px;font-weight:600;">Explore</button>
-      </div>
-      <div class="promo-card promo-teal" onclick="showShop('travel')">
-        <span class="emoji">🧳</span>
-        <div class="promo-tag">Travel Edit</div>
-        <div class="promo-title">Travel Gear</div>
-        <div class="promo-sub">Organised for adventure</div>
-        <button class="btn" style="background:rgba(255,255,255,0.25);color:white;font-size:12px;padding:7px 14px;border:1px solid rgba(255,255,255,0.4);border-radius:6px;font-weight:600;">View All</button>
-      </div>
-    </div>
-
-    <!-- Featured Products -->
-    <div class="section-header">
-      <div class="section-title">🔥 Best Sellers</div>
-      <a class="section-link" href="#" onclick="showPage('shop')">View All →</a>
-    </div>
-    <div class="product-grid" id="featuredProducts"></div>
-
-    <!-- New Arrivals -->
-    <div class="section-header">
-      <div class="section-title">✨ New Arrivals</div>
-      <a class="section-link" href="#" onclick="showPage('shop')">View All →</a>
-    </div>
-    <div class="product-grid" id="newProducts"></div>
-
-  </div>
-</div>
-
-<!-- ============================== SHOP PAGE ============================== -->
-<div class="page" id="page-shop">
-  <div class="main-wrapper">
-    <div class="breadcrumb">
-      <a href="#" onclick="showPage('home')">Home</a><span>/</span><span>Shop</span>
-    </div>
-    <div class="shop-layout">
-
-      <!-- Filters -->
-      <aside class="filter-sidebar">
-        <div class="filter-card">
-          <div class="filter-title">Category</div>
-          <div class="filter-item"><input type="checkbox" checked> All Products <span class="count">48</span></div>
-          <div class="filter-item"><input type="checkbox"> Bags & Pouches <span class="count">18</span></div>
-          <div class="filter-item"><input type="checkbox"> Wallets <span class="count">12</span></div>
-          <div class="filter-item"><input type="checkbox"> Belts <span class="count">8</span></div>
-          <div class="filter-item"><input type="checkbox"> Accessories <span class="count">6</span></div>
-          <div class="filter-item"><input type="checkbox"> Travel Gear <span class="count">4</span></div>
-        </div>
-        <div class="filter-card">
-          <div class="filter-title">Price Range</div>
-          <input type="range" min="0" max="10000" value="10000" style="width:100%;" oninput="document.getElementById('priceVal').textContent='₹'+this.value">
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-top:6px;">
-            <span>₹0</span><span id="priceVal">₹10,000</span>
-          </div>
-        </div>
-        <div class="filter-card">
-          <div class="filter-title">Colour</div>
-          <div class="color-swatches">
-            <div class="swatch active" style="background:#1a1a2e;" title="Black"></div>
-            <div class="swatch" style="background:#8B4513;" title="Brown"></div>
-            <div class="swatch" style="background:#D2691E;" title="Tan"></div>
-            <div class="swatch" style="background:#2c3e50;" title="Navy"></div>
-            <div class="swatch" style="background:#c0392b;" title="Red"></div>
-            <div class="swatch" style="background:#f39c12;" title="Mustard"></div>
-            <div class="swatch" style="background:#95a5a6;" title="Grey"></div>
-            <div class="swatch" style="background:#ffffff;border:1px solid #ddd;" title="White"></div>
-          </div>
-        </div>
-        <div class="filter-card">
-          <div class="filter-title">Size</div>
-          <div class="filter-item"><input type="checkbox"> Small (S)</div>
-          <div class="filter-item"><input type="checkbox"> Medium (M)</div>
-          <div class="filter-item"><input type="checkbox"> Large (L)</div>
-          <div class="filter-item"><input type="checkbox"> Extra Large (XL)</div>
-          <div class="filter-item"><input type="checkbox"> One Size</div>
-        </div>
-        <div class="filter-card">
-          <div class="filter-title">Rating</div>
-          <div class="filter-item"><input type="checkbox"> ⭐⭐⭐⭐⭐ & above</div>
-          <div class="filter-item"><input type="checkbox"> ⭐⭐⭐⭐ & above</div>
-          <div class="filter-item"><input type="checkbox"> ⭐⭐⭐ & above</div>
-        </div>
-        <div class="filter-card">
-          <div class="filter-title">Discount</div>
-          <div class="filter-item"><input type="checkbox"> 10% and above</div>
-          <div class="filter-item"><input type="checkbox"> 20% and above</div>
-          <div class="filter-item"><input type="checkbox"> 30% and above</div>
-          <div class="filter-item"><input type="checkbox"> 40% and above</div>
-        </div>
-        <button class="btn btn-primary w-full" style="margin-top:4px;">Apply Filters</button>
-      </aside>
-
-      <!-- Products -->
-      <div class="shop-products">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-          <div style="font-size:14px;color:var(--text-muted);">Showing <strong>48 products</strong></div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <label style="font-size:13px;color:var(--text-muted);">Sort:</label>
-            <select style="padding:7px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
-              <option>Relevance</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Newest First</option>
-              <option>Highest Rated</option>
-              <option>Discount</option>
-            </select>
-          </div>
-        </div>
-        <div class="product-grid" id="shopProducts"></div>
-        <div class="pagination">
-          <button class="page-btn active">1</button>
-          <button class="page-btn">2</button>
-          <button class="page-btn">3</button>
-          <button class="page-btn">→</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================== PRODUCT DETAIL ============================== -->
-<div class="page" id="page-product">
-  <div class="main-wrapper">
-    <div class="breadcrumb">
-      <a href="#" onclick="showPage('home')">Home</a><span>/</span>
-      <a href="#" onclick="showPage('shop')">Shop</a><span>/</span>
-      <span id="pdBreadcrumb">Product</span>
-    </div>
-    <div class="product-detail">
-      <!-- Gallery -->
-      <div class="product-gallery">
-        <div class="main-img" id="pdImg">👜</div>
-        <div class="thumb-row">
-          <div class="thumb active">👜</div>
-          <div class="thumb">📷</div>
-          <div class="thumb">🔍</div>
-          <div class="thumb">📐</div>
-        </div>
-      </div>
-      <!-- Info -->
+  <!-- Featured -->
+  <div style="padding: 80px 80px 48px; border-top: 1px solid var(--burlap);">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
       <div>
-        <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;" id="pdBrand">Lapoche LLP</div>
-        <h1 style="font-size:26px;font-weight:700;margin-bottom:8px;" id="pdName">Premium Leather Tote Bag</h1>
-
-        <div class="product-rating" style="margin-bottom:12px;">
-          <span class="stars">★★★★☆</span>
-          <span style="font-size:14px;font-weight:600;" id="pdRating">4.2</span>
-          <span class="rating-count">(1,248 ratings · 392 reviews)</span>
+        <p style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">New Arrivals</p>
+        <h2 style="font-family:var(--font-display);font-size:40px;font-weight:300;">The Spring Edit</h2>
+      </div>
+      <button class="btn-outline" onclick="showSection('shop')">View All Bags</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="product-card" onclick="showSection('shop')">
+        <div class="product-img" style="font-size:40px;">🛍️</div>
+        <div class="product-info">
+          <div class="product-meta">Tote</div>
+          <div class="product-title">The Market Tote</div>
+          <div class="product-footer"><span class="product-price-tag">₹ 1,299</span><button class="add-btn">+</button></div>
         </div>
-
-        <div style="background:#e6f7ec;border:1px solid #a7f3d0;border-radius:8px;padding:10px 14px;font-size:13px;color:#065f46;margin-bottom:16px;display:flex;gap:8px;align-items:center;">
-          ✅ In Stock — Usually ships in 2-3 business days
+      </div>
+      <div class="product-card" onclick="showSection('shop')">
+        <div class="product-img" style="font-size:40px;"><span class="product-badge new">New</span>🎒</div>
+        <div class="product-info">
+          <div class="product-meta">Backpack</div>
+          <div class="product-title">La Flânerie</div>
+          <div class="product-footer"><span class="product-price-tag">₹ 2,199</span><button class="add-btn">+</button></div>
         </div>
-
-        <div class="product-price" style="margin-bottom:20px;">
-          <span class="price-current" id="pdPrice" style="font-size:28px;">₹2,499</span>
-          <span class="price-original" id="pdOriginal">₹3,999</span>
-          <span class="price-discount" style="font-size:15px;">38% off</span>
+      </div>
+      <div class="product-card" onclick="showSection('shop')">
+        <div class="product-img" style="font-size:40px;">👜</div>
+        <div class="product-info">
+          <div class="product-meta">Clutch</div>
+          <div class="product-title">The Petite Pouch</div>
+          <div class="product-footer"><span class="product-price-tag">₹ 799</span><button class="add-btn">+</button></div>
         </div>
-
-        <!-- Colour -->
-        <div class="product-spec-section">
-          <div class="spec-title">Colour</div>
-          <div class="color-swatches">
-            <div class="swatch active" style="background:#1a1a2e;" title="Black"></div>
-            <div class="swatch" style="background:#8B4513;" title="Brown"></div>
-            <div class="swatch" style="background:#D2691E;" title="Tan"></div>
-            <div class="swatch" style="background:#2c3e50;" title="Navy"></div>
-            <div class="swatch" style="background:#c0392b;" title="Red"></div>
-          </div>
-        </div>
-
-        <!-- Size -->
-        <div class="product-spec-section">
-          <div class="spec-title" style="display:flex;align-items:center;gap:10px;">Size <span style="font-size:13px;font-weight:400;color:var(--primary-light);cursor:pointer;">Size Guide →</span></div>
-          <div class="size-picker">
-            <button class="size-btn">S</button>
-            <button class="size-btn active">M</button>
-            <button class="size-btn">L</button>
-            <button class="size-btn">XL</button>
-            <button class="size-btn disabled">XXL</button>
-          </div>
-        </div>
-
-        <!-- Quantity -->
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
-          <div class="spec-title" style="margin:0;">Qty:</div>
-          <div class="qty-ctrl">
-            <button onclick="this.nextElementSibling.textContent = Math.max(1, parseInt(this.nextElementSibling.textContent)-1)">−</button>
-            <span>1</span>
-            <button onclick="this.previousElementSibling.textContent = parseInt(this.previousElementSibling.textContent)+1">+</button>
-          </div>
-        </div>
-
-        <div class="flex gap-2 mb-3">
-          <button class="btn btn-primary" style="flex:1;justify-content:center;font-size:15px;padding:14px;" onclick="addToCart(); showToast('🛒 Added to cart!')">🛒 Add to Cart</button>
-          <button class="btn btn-accent" style="flex:1;justify-content:center;font-size:15px;padding:14px;" onclick="showPage('checkout')">⚡ Buy Now</button>
-        </div>
-
-        <!-- Highlights -->
-        <div style="background:var(--bg);border-radius:8px;padding:16px;margin-bottom:20px;">
-          <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Product Highlights</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px;">
-            <div>✓ Genuine Full-Grain Leather</div>
-            <div>✓ YKK Premium Zipper</div>
-            <div>✓ Anti-scratch Lining</div>
-            <div>✓ Detachable Strap</div>
-            <div>✓ Water-resistant</div>
-            <div>✓ 2-year Warranty</div>
-          </div>
-        </div>
-
-        <!-- Specs Table -->
-        <div class="product-spec-section">
-          <div class="spec-title">Specifications</div>
-          <table class="spec-table" id="pdSpecs">
-            <tr><td>Material</td><td>Full-grain genuine leather</td></tr>
-            <tr><td>Dimensions</td><td>35 × 12 × 28 cm</td></tr>
-            <tr><td>Weight</td><td>650g</td></tr>
-            <tr><td>Capacity</td><td>~18 litres</td></tr>
-            <tr><td>Pockets</td><td>3 exterior, 4 interior</td></tr>
-            <tr><td>Laptop Sleeve</td><td>Up to 15.6"</td></tr>
-            <tr><td>Strap</td><td>Adjustable 90–140 cm</td></tr>
-            <tr><td>Closure</td><td>Magnetic snap + YKK zip</td></tr>
-            <tr><td>Colour</td><td>Black, Brown, Tan, Navy</td></tr>
-            <tr><td>SKU</td><td>LP-TT-BLK-M-001</td></tr>
-            <tr><td>Country of Origin</td><td>India</td></tr>
-          </table>
-        </div>
-
-        <!-- Delivery -->
-        <div style="margin-top:16px;padding:14px;border:1px solid var(--border);border-radius:8px;">
-          <div style="font-size:14px;font-weight:700;margin-bottom:10px;">Delivery & Returns</div>
-          <div style="font-size:13px;display:grid;gap:6px;color:var(--text-muted);">
-            <div>🚚 <strong>Free delivery</strong> on orders above ₹999</div>
-            <div>⚡ <strong>Express delivery</strong> available in select cities</div>
-            <div>↩️ <strong>10-day easy returns</strong> — no questions asked</div>
-            <div>🔒 <strong>100% secure</strong> payment · COD available</div>
-          </div>
+      </div>
+      <div class="product-card" onclick="showSection('shop')">
+        <div class="product-img" style="font-size:40px;"><span class="product-badge">Eco</span>🌿</div>
+        <div class="product-info">
+          <div class="product-meta">Shopper</div>
+          <div class="product-title">The Grand Panier</div>
+          <div class="product-footer"><span class="product-price-tag">₹ 1,599</span><button class="add-btn">+</button></div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ============================== CART PAGE ============================== -->
-<div class="page" id="page-cart">
-  <div class="main-wrapper">
-    <div class="breadcrumb">
-      <a href="#" onclick="showPage('home')">Home</a><span>/</span><span>Cart</span>
+  <!-- Values strip -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--burlap);border-bottom:1px solid var(--burlap);margin-bottom:0;">
+    <div style="padding:48px 56px;border-right:1px solid var(--burlap);">
+      <div style="font-size:22px;margin-bottom:14px;">🌿</div>
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:8px;">100% Natural Jute</div>
+      <div style="font-size:13px;color:#6B5E50;line-height:1.7;">No synthetics, no shortcuts. Every fibre is biodegradable and sourced from certified farms.</div>
     </div>
-    <h2 style="margin-bottom:20px;">Your Cart (<span id="cartCount">0</span> items)</h2>
-    <div class="cart-layout">
-      <div id="cartItems">
-        <!-- populated by JS -->
+    <div style="padding:48px 56px;border-right:1px solid var(--burlap);">
+      <div style="font-size:22px;margin-bottom:14px;">🤝</div>
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:8px;">Artisan Made</div>
+      <div style="font-size:13px;color:#6B5E50;line-height:1.7;">Each bag is hand-woven by skilled artisans. Fair wages, small batches, real craft.</div>
+    </div>
+    <div style="padding:48px 56px;">
+      <div style="font-size:22px;margin-bottom:14px;">📦</div>
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:500;margin-bottom:8px;">Pan-India Shipping</div>
+      <div style="font-size:13px;color:#6B5E50;line-height:1.7;">Free delivery on orders above ₹999. Delivered in compostable packaging within 4–6 days.</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">La Poche</div>
+        <div class="footer-brand-desc">A small studio making honest jute bags in India. Rooted in craft, sold with care.</div>
       </div>
       <div>
-        <div class="order-summary">
-          <div style="font-size:16px;font-weight:700;margin-bottom:16px;">Order Summary</div>
-          <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
-          <div class="summary-row"><span>Discount</span><span style="color:var(--success);" id="cartDiscount">- ₹0</span></div>
-          <div class="summary-row"><span>Delivery Charges</span><span id="cartDelivery">₹49</span></div>
-          <div class="summary-row"><span>GST (18%)</span><span id="cartGst">₹0</span></div>
-          <div class="summary-row summary-total"><span>Total</span><span id="cartTotal">₹0</span></div>
-          <button class="btn btn-accent w-full" style="margin-top:16px;justify-content:center;font-size:15px;padding:14px;" onclick="showPage('checkout')">Proceed to Checkout →</button>
-          <button class="btn btn-outline w-full" style="margin-top:8px;justify-content:center;font-size:14px;border-color:var(--border);color:var(--text);" onclick="showPage('shop')">Continue Shopping</button>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="#">Totes</a></li>
+          <li><a href="#">Backpacks</a></li>
+          <li><a href="#">Clutches</a></li>
+          <li><a href="#">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Artisans</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="#">Orders & Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Care Guide</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 La Poche. All rights reserved.</div>
+      <div class="footer-copy">Made in India · Shipped with love</div>
+    </div>
+  </footer>
+</section>
 
-          <div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;">
-            <div style="font-size:13px;font-weight:600;margin-bottom:8px;">Apply Coupon</div>
+<!-- SHOP -->
+<section id="shop">
+  <div class="shop-wrap">
+    <div class="shop-header">
+      <div>
+        <h1 class="shop-title">The Collection</h1>
+        <p class="shop-subtitle">24 products — handcrafted jute bags</p>
+      </div>
+      <div class="shop-controls">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Totes</button>
+        <button class="filter-btn">Backpacks</button>
+        <button class="filter-btn">Clutches</button>
+        <select style="border:1px solid var(--burlap);padding:8px 12px;font-family:var(--font-body);font-size:12px;background:var(--white);color:var(--charcoal);cursor:pointer;">
+          <option>Sort: Featured</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Newest</option>
+        </select>
+      </div>
+    </div>
+    <div class="shop-body">
+      <div class="shop-sidebar">
+        <div class="sidebar-group">
+          <div class="sidebar-title">Category</div>
+          <ul class="sidebar-items">
+            <li class="active">All Bags <span class="sidebar-count">24</span></li>
+            <li>Totes <span class="sidebar-count">10</span></li>
+            <li>Backpacks <span class="sidebar-count">6</span></li>
+            <li>Clutches <span class="sidebar-count">5</span></li>
+            <li>Shoppers <span class="sidebar-count">3</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-title">Price Range</div>
+          <div class="price-range">
+            <input type="range" min="0" max="5000" value="3000">
+            <div class="price-labels"><span>₹0</span><span>₹3,000</span></div>
+          </div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-title">Finish</div>
+          <ul class="sidebar-items">
+            <li class="active">Natural <span class="sidebar-count">14</span></li>
+            <li>Dyed <span class="sidebar-count">7</span></li>
+            <li>Printed <span class="sidebar-count">3</span></li>
+          </ul>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-title">Size</div>
+          <ul class="sidebar-items">
+            <li>Small</li>
+            <li>Medium</li>
+            <li>Large</li>
+          </ul>
+        </div>
+      </div>
+      <div class="shop-grid-wrap">
+        <div class="shop-grid">
+          <div class="product-card">
+            <div class="product-img">🛍️<span class="product-badge">Top Seller</span></div>
+            <div class="product-info">
+              <div class="product-meta">Tote · Natural</div>
+              <div class="product-title">The Market Tote</div>
+              <div class="product-desc">Spacious, structured, and built for daily use. Double-stitched handles.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 1,299</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">🎒<span class="product-badge new">New</span></div>
+            <div class="product-info">
+              <div class="product-meta">Backpack · Natural</div>
+              <div class="product-title">La Flânerie</div>
+              <div class="product-desc">The wanderer's backpack. Padded back, two internal pockets.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 2,199</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">👜</div>
+            <div class="product-info">
+              <div class="product-meta">Clutch · Dyed</div>
+              <div class="product-title">The Petite Pouch</div>
+              <div class="product-desc">Evening clutch with brass clasp and hand-embroidered trim.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 799</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">🧺</div>
+            <div class="product-info">
+              <div class="product-meta">Shopper · Natural</div>
+              <div class="product-title">The Grand Panier</div>
+              <div class="product-desc">Open-top shopper with bold weave pattern. Holds up to 8kg.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 1,599</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">🌿<span class="product-badge" style="background:var(--moss)">Eco</span></div>
+            <div class="product-info">
+              <div class="product-meta">Tote · Printed</div>
+              <div class="product-title">Botanica Tote</div>
+              <div class="product-desc">Block-printed botanical motifs on natural jute canvas.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 1,499</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img">🎁</div>
+            <div class="product-info">
+              <div class="product-meta">Gift Set</div>
+              <div class="product-title">The Ritual Box</div>
+              <div class="product-desc">Tote + Pouch, beautifully packaged in a kraft gift box.</div>
+              <div class="product-footer"><span class="product-price-tag">₹ 1,999</span><button class="add-btn">+</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <div class="dash-wrap">
+    <div class="dash-sidebar">
+      <div class="dash-brand">
+        <div class="dash-brand-name">La Poche</div>
+        <div class="dash-brand-sub">Operations Dashboard</div>
+      </div>
+      <div class="dash-section-label">Overview</div>
+      <ul class="dash-nav">
+        <li><a onclick="showDash('sales')" id="dsales" class="active"><span class="icon">📊</span> Sales</a></li>
+        <li><a onclick="showDash('orders')" id="dorders"><span class="icon">📦</span> Orders</a></li>
+        <div class="dash-section-label">Operations</div>
+        <li><a onclick="showDash('inventory')" id="dinventory"><span class="icon">🏪</span> Inventory</a></li>
+        <li><a onclick="showDash('production')" id="dproduction"><span class="icon">🧵</span> Production</a></li>
+        <div class="dash-section-label">Finance</div>
+        <li><a onclick="showDash('finance')" id="dfinance"><span class="icon">💰</span> Finance</a></li>
+        <li><a onclick="showDash('payouts')" id="dpayouts"><span class="icon">📤</span> Payouts</a></li>
+        <div class="dash-section-label">Settings</div>
+        <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+      </ul>
+    </div>
+    <div class="dash-main">
+
+      <!-- SALES -->
+      <div class="dash-view active" id="dash-sales">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Sales Overview</div><div class="dash-date">June 2026</div></div>
+          <button class="btn-primary">Export Report</button>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card gold">
+            <div class="kpi-label">Total Revenue</div>
+            <div class="kpi-value">₹8.4L</div>
+            <div class="kpi-change up">↑ 18% vs last month</div>
+          </div>
+          <div class="kpi-card moss">
+            <div class="kpi-label">Orders</div>
+            <div class="kpi-value">642</div>
+            <div class="kpi-change up">↑ 12% vs last month</div>
+          </div>
+          <div class="kpi-card charcoal">
+            <div class="kpi-label">Avg. Order Value</div>
+            <div class="kpi-value">₹1,308</div>
+            <div class="kpi-change up">↑ 5% vs last month</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Returns</div>
+            <div class="kpi-value">14</div>
+            <div class="kpi-change down">↑ 3 this week</div>
+          </div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">Monthly Revenue</div>
+              <div class="dash-card-action">View Details →</div>
+            </div>
+            <div class="chart-area">
+              <div style="display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;padding-right:12px;height:160px;font-size:10px;color:var(--mid);">
+                <span>₹10L</span><span>₹7.5L</span><span>₹5L</span><span>₹2.5L</span><span>₹0</span>
+              </div>
+              <div style="flex:1;display:flex;align-items:flex-end;gap:8px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar" style="height:52px;"></div><div class="bar-label">Jan</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar" style="height:62px;"></div><div class="bar-label">Feb</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar" style="height:78px;"></div><div class="bar-label">Mar</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar" style="height:90px;"></div><div class="bar-label">Apr</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar" style="height:108px;"></div><div class="bar-label">May</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div class="bar highlight" style="height:134px;"></div><div class="bar-label" style="color:var(--gold);font-weight:600;">Jun</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div class="dash-card-title">Top Products</div>
+            </div>
+            <div class="top-products">
+              <div class="top-product-row">
+                <div class="top-product-rank">1</div>
+                <div class="top-product-icon">🛍️</div>
+                <div class="top-product-info">
+                  <div class="top-product-name">Market Tote</div>
+                  <div class="top-product-sold">218 units sold</div>
+                </div>
+                <div class="top-product-rev">₹2.8L</div>
+              </div>
+              <div class="top-product-row">
+                <div class="top-product-rank">2</div>
+                <div class="top-product-icon">🎒</div>
+                <div class="top-product-info">
+                  <div class="top-product-name">La Flânerie</div>
+                  <div class="top-product-sold">142 units sold</div>
+                </div>
+                <div class="top-product-rev">₹3.1L</div>
+              </div>
+              <div class="top-product-row">
+                <div class="top-product-rank">3</div>
+                <div class="top-product-icon">🌿</div>
+                <div class="top-product-info">
+                  <div class="top-product-name">Botanica Tote</div>
+                  <div class="top-product-sold">98 units sold</div>
+                </div>
+                <div class="top-product-rev">₹1.5L</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDERS -->
+      <div class="dash-view" id="dash-orders">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Orders</div><div class="dash-date">642 orders this month</div></div>
+          <button class="btn-primary">+ New Order</button>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card gold"><div class="kpi-label">New</div><div class="kpi-value">48</div><div class="kpi-change">Last 24 hours</div></div>
+          <div class="kpi-card moss"><div class="kpi-label">Processing</div><div class="kpi-value">127</div><div class="kpi-change up">On track</div></div>
+          <div class="kpi-card charcoal"><div class="kpi-label">Shipped</div><div class="kpi-value">431</div><div class="kpi-change up">This month</div></div>
+          <div class="kpi-card red"><div class="kpi-label">Cancelled</div><div class="kpi-value">36</div><div class="kpi-change down">↑ 8 this week</div></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Recent Orders</div>
             <div style="display:flex;gap:8px;">
-              <input type="text" placeholder="Enter coupon code" style="flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
-              <button class="btn btn-primary" style="padding:8px 16px;font-size:13px;">Apply</button>
+              <button class="filter-btn active" style="padding:6px 12px;">All</button>
+              <button class="filter-btn" style="padding:6px 12px;">Pending</button>
+              <button class="filter-btn" style="padding:6px 12px;">Shipped</button>
             </div>
-            <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Try: LAPOCHE10, FIRST20, SAVE30</div>
           </div>
-        </div>
-
-        <div style="margin-top:16px;padding:14px;border:1px solid var(--border);background:var(--bg-card);border-radius:var(--radius);">
-          <div style="font-size:13px;font-weight:700;margin-bottom:8px;">Safe & Secure Payments</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">Visa</span>
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">Mastercard</span>
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">UPI</span>
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">Net Banking</span>
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">EMI</span>
-            <span style="background:#f1f5f9;padding:4px 10px;border-radius:4px;font-size:12px;">COD</span>
+          <div class="orders-list">
+            <div class="order-row header">
+              <span>Order</span><span>Amount</span><span>Status</span><span>Date</span>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">#LP-0642</div><div class="order-customer">Priya Menon · 2 items</div></div>
+              <div>₹ 2,598</div>
+              <div><span class="status-badge shipped">Shipped</span></div>
+              <div style="font-size:12px;color:var(--mid);">21 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">#LP-0641</div><div class="order-customer">Arjun Sharma · 1 item</div></div>
+              <div>₹ 1,299</div>
+              <div><span class="status-badge paid">Paid</span></div>
+              <div style="font-size:12px;color:var(--mid);">21 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">#LP-0640</div><div class="order-customer">Meera Nair · 3 items</div></div>
+              <div>₹ 4,197</div>
+              <div><span class="status-badge pending">Pending</span></div>
+              <div style="font-size:12px;color:var(--mid);">20 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">#LP-0639</div><div class="order-customer">Rahul Gupta · 1 item</div></div>
+              <div>₹ 2,199</div>
+              <div><span class="status-badge shipped">Shipped</span></div>
+              <div style="font-size:12px;color:var(--mid);">20 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">#LP-0638</div><div class="order-customer">Divya Krishnan · 2 items</div></div>
+              <div>₹ 2,098</div>
+              <div><span class="status-badge cancelled">Cancelled</span></div>
+              <div style="font-size:12px;color:var(--mid);">19 Jun</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- ============================== CHECKOUT ============================== -->
-<div class="page" id="page-checkout">
-  <div class="main-wrapper">
-    <div class="breadcrumb">
-      <a href="#" onclick="showPage('home')">Home</a><span>/</span>
-      <a href="#" onclick="showPage('cart')">Cart</a><span>/</span><span>Checkout</span>
-    </div>
-    <div class="checkout-layout">
-      <div>
-        <!-- Step 1: Address -->
-        <div class="checkout-step">
-          <div class="step-header">
-            <div class="step-num done">1</div>
-            <div class="step-title">Delivery Address</div>
-          </div>
-          <div class="form-grid">
-            <div class="form-group"><label>Full Name *</label><input type="text" placeholder="Enter full name" value="Rahul Sharma"></div>
-            <div class="form-group"><label>Mobile Number *</label><input type="text" placeholder="+91 XXXXX XXXXX" value="+91 98765 43210"></div>
-            <div class="form-group"><label>Email Address</label><input type="email" placeholder="email@example.com" value="rahul@example.com"></div>
-            <div class="form-group"><label>Pincode *</label><input type="text" placeholder="560001" value="560001"></div>
-            <div class="form-group full"><label>Address Line 1 *</label><input type="text" placeholder="House / Flat No., Street Name" value="42, MG Road, Koramangala"></div>
-            <div class="form-group full"><label>Address Line 2</label><input type="text" placeholder="Area, Landmark"></div>
-            <div class="form-group"><label>City *</label><input type="text" value="Bangalore"></div>
-            <div class="form-group"><label>State *</label>
-              <select>
-                <option>Karnataka</option><option>Maharashtra</option><option>Tamil Nadu</option>
-                <option>Delhi</option><option>Gujarat</option><option>Rajasthan</option>
-              </select>
-            </div>
-            <div class="form-group"><label>Address Type</label>
-              <select><option>Home</option><option>Work</option><option>Other</option></select>
-            </div>
-          </div>
+      <!-- INVENTORY -->
+      <div class="dash-view" id="dash-inventory">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Inventory</div><div class="dash-date">24 SKUs tracked</div></div>
+          <button class="btn-primary">+ Add Stock</button>
         </div>
-
-        <!-- Step 2: Payment -->
-        <div class="checkout-step">
-          <div class="step-header">
-            <div class="step-num">2</div>
-            <div class="step-title">Payment Method</div>
-          </div>
-          <div style="display:grid;gap:10px;">
-            <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1.5px solid var(--primary);border-radius:8px;cursor:pointer;background:#f0f4ff;">
-              <input type="radio" name="payment" checked> <span style="font-weight:600;">💳 Credit / Debit Card</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;">
-              <input type="radio" name="payment"> <span>📱 UPI (GPay, PhonePe, Paytm)</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;">
-              <input type="radio" name="payment"> <span>🏦 Net Banking</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;">
-              <input type="radio" name="payment"> <span>💰 Cash on Delivery (COD)</span>
-            </label>
-            <label style="display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;">
-              <input type="radio" name="payment"> <span>📋 EMI (0% EMI available)</span>
-            </label>
-          </div>
-          <div style="margin-top:16px;">
-            <div class="form-grid">
-              <div class="form-group"><label>Card Number</label><input type="text" placeholder="XXXX XXXX XXXX XXXX"></div>
-              <div class="form-group"><label>Name on Card</label><input type="text" placeholder="As on card"></div>
-              <div class="form-group"><label>Expiry (MM/YY)</label><input type="text" placeholder="MM / YY"></div>
-              <div class="form-group"><label>CVV</label><input type="password" placeholder="XXX" style="max-width:120px;"></div>
-            </div>
-          </div>
+        <div class="kpi-grid">
+          <div class="kpi-card gold"><div class="kpi-label">Total Units</div><div class="kpi-value">1,842</div><div class="kpi-change">In stock</div></div>
+          <div class="kpi-card moss"><div class="kpi-label">Healthy SKUs</div><div class="kpi-value">18</div><div class="kpi-change up">75% of catalogue</div></div>
+          <div class="kpi-card charcoal"><div class="kpi-label">Low Stock</div><div class="kpi-value">4</div><div class="kpi-change down">Reorder needed</div></div>
+          <div class="kpi-card red"><div class="kpi-label">Out of Stock</div><div class="kpi-value">2</div><div class="kpi-change down">Action required</div></div>
         </div>
-
-        <button class="btn btn-accent" style="font-size:16px;padding:16px 40px;width:100%;justify-content:center;"
-          onclick="showToast('✅ Order placed successfully! Order #LP2024-8821');showPage('orders');">
-          🔒 Place Order Securely
-        </button>
-      </div>
-
-      <!-- Right Summary -->
-      <div>
-        <div class="order-summary">
-          <div style="font-size:15px;font-weight:700;margin-bottom:14px;">Order Summary</div>
-          <div id="checkoutItems" style="margin-bottom:12px;"></div>
-          <hr style="border:none;border-top:1px solid var(--border);margin:12px 0;">
-          <div class="summary-row"><span>Subtotal</span><span id="coSubtotal">₹2,499</span></div>
-          <div class="summary-row"><span>Discount (LAPOCHE10)</span><span style="color:var(--success);">- ₹250</span></div>
-          <div class="summary-row"><span>Delivery</span><span>Free</span></div>
-          <div class="summary-row"><span>GST (18%)</span><span>₹400</span></div>
-          <div class="summary-row summary-total"><span>Total Payable</span><span>₹2,649</span></div>
-          <div style="margin-top:12px;padding:10px;background:#e6f7ec;border-radius:7px;font-size:12px;color:var(--success);font-weight:600;">
-            💸 You save ₹1,750 on this order!
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Stock Levels</div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================== ACCOUNT PAGE ============================== -->
-<div class="page" id="page-account">
-  <div class="main-wrapper">
-    <div class="account-grid">
-      <aside>
-        <div style="background:var(--primary);color:white;border-radius:var(--radius);padding:20px;margin-bottom:12px;text-align:center;">
-          <div style="width:60px;height:60px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 10px;">RS</div>
-          <div style="font-weight:700;font-size:15px;">Rahul Sharma</div>
-          <div style="font-size:12px;opacity:0.75;">rahul@example.com</div>
-          <div style="margin-top:10px;font-size:11px;background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:20px;display:inline-block;">Gold Member ⭐</div>
-        </div>
-        <div class="account-menu">
-          <a href="#" class="active" onclick="showAccountTab('orders')">📦 My Orders</a>
-          <a href="#" onclick="showAccountTab('profile')">👤 Profile</a>
-          <a href="#" onclick="showAccountTab('address')">📍 Addresses</a>
-          <a href="#" onclick="showPage('wishlist')">❤️ Wishlist</a>
-          <a href="#" onclick="showAccountTab('wallet')">💰 Wallet & Rewards</a>
-          <a href="#" onclick="showAccountTab('reviews')">⭐ My Reviews</a>
-          <div class="divider"></div>
-          <a href="#" onclick="showAccountTab('notifications')">🔔 Notifications</a>
-          <a href="#" onclick="showAccountTab('help')">❓ Help & Support</a>
-          <div class="divider"></div>
-          <a href="#" style="color:#e74c3c;">🚪 Log Out</a>
-        </div>
-      </aside>
-      <div id="accountContent">
-        <!-- My Orders Tab -->
-        <div id="tab-orders">
-          <div class="flex" style="align-items:center;margin-bottom:20px;">
-            <h2 style="font-size:20px;">My Orders</h2>
-            <input type="text" placeholder="Search orders…" style="margin-left:auto;padding:8px 14px;border:1px solid var(--border);border-radius:6px;font-size:13px;width:220px;">
-          </div>
-          <table class="data-table">
+          <table class="inventory-table">
             <thead><tr>
-              <th>Order ID</th><th>Date</th><th>Items</th><th>Total</th><th>Status</th><th>Action</th>
+              <th>Product</th><th>SKU</th><th>In Stock</th><th>Stock Level</th><th>Status</th><th>Reorder Point</th>
             </tr></thead>
             <tbody>
-              <tr><td><strong>#LP2024-8820</strong></td><td>12 Jun 2024</td><td>Leather Tote Bag ×1</td><td>₹2,499</td><td><span class="status-pill status-delivered">Delivered</span></td><td><a href="#" style="color:var(--primary-light);font-size:13px;" onclick="showPage('orders')">Track</a></td></tr>
-              <tr><td><strong>#LP2024-7741</strong></td><td>01 Jun 2024</td><td>Slim Wallet ×2</td><td>₹1,198</td><td><span class="status-pill status-shipped">Shipped</span></td><td><a href="#" style="color:var(--primary-light);font-size:13px;" onclick="showPage('orders')">Track</a></td></tr>
-              <tr><td><strong>#LP2024-6632</strong></td><td>20 May 2024</td><td>Belt + Pouch Set</td><td>₹3,249</td><td><span class="status-pill status-delivered">Delivered</span></td><td><a href="#" style="color:var(--primary-light);font-size:13px;">Reorder</a></td></tr>
-              <tr><td><strong>#LP2024-5521</strong></td><td>05 May 2024</td><td>Travel Duffel Bag</td><td>₹4,999</td><td><span class="status-pill status-cancelled">Cancelled</span></td><td><a href="#" style="color:var(--primary-light);font-size:13px;">Reorder</a></td></tr>
-              <tr><td><strong>#LP2024-4410</strong></td><td>18 Apr 2024</td><td>Card Holder ×3</td><td>₹897</td><td><span class="status-pill status-delivered">Delivered</span></td><td><a href="#" style="color:var(--primary-light);font-size:13px;">Review</a></td></tr>
+              <tr>
+                <td><strong>Market Tote — Natural</strong></td>
+                <td style="color:var(--mid);">LP-T-001</td>
+                <td>342</td>
+                <td><div class="stock-bar-wrap"><div class="stock-bar good" style="width:85%"></div></div></td>
+                <td><span class="status-badge paid">Good</span></td>
+                <td style="color:var(--mid);">50</td>
+              </tr>
+              <tr>
+                <td><strong>La Flânerie Backpack</strong></td>
+                <td style="color:var(--mid);">LP-B-001</td>
+                <td>218</td>
+                <td><div class="stock-bar-wrap"><div class="stock-bar good" style="width:70%"></div></div></td>
+                <td><span class="status-badge paid">Good</span></td>
+                <td style="color:var(--mid);">30</td>
+              </tr>
+              <tr>
+                <td><strong>Petite Pouch — Indigo</strong></td>
+                <td style="color:var(--mid);">LP-C-002</td>
+                <td>38</td>
+                <td><div class="stock-bar-wrap"><div class="stock-bar low" style="width:19%"></div></div></td>
+                <td><span class="status-badge pending">Low</span></td>
+                <td style="color:var(--mid);">50</td>
+              </tr>
+              <tr>
+                <td><strong>Botanica Tote</strong></td>
+                <td style="color:var(--mid);">LP-T-004</td>
+                <td>12</td>
+                <td><div class="stock-bar-wrap"><div class="stock-bar critical" style="width:6%"></div></div></td>
+                <td><span class="status-badge cancelled">Critical</span></td>
+                <td style="color:var(--mid);">40</td>
+              </tr>
+              <tr>
+                <td><strong>Grand Panier</strong></td>
+                <td style="color:var(--mid);">LP-S-001</td>
+                <td>0</td>
+                <td><div class="stock-bar-wrap"><div class="stock-bar critical" style="width:0%"></div></div></td>
+                <td><span class="status-badge cancelled">Out of Stock</span></td>
+                <td style="color:var(--mid);">25</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- ============================== ORDER TRACKING ============================== -->
-<div class="page" id="page-orders">
-  <div class="main-wrapper">
-    <div class="breadcrumb">
-      <a href="#" onclick="showPage('account')">My Account</a><span>/</span><span>Order Tracking</span>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 340px;gap:24px;">
-      <div>
-        <div class="form-card mb-2">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <div>
-              <div style="font-size:18px;font-weight:700;">Order #LP2024-7741</div>
-              <div style="font-size:13px;color:var(--text-muted);">Placed on 01 June 2024 · 2 items · ₹1,198</div>
+      <!-- PRODUCTION -->
+      <div class="dash-view" id="dash-production">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Production</div><div class="dash-date">Q2 2026</div></div>
+          <button class="btn-primary">New Batch</button>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card gold"><div class="kpi-label">Active Batches</div><div class="kpi-value">6</div><div class="kpi-change">In weaving</div></div>
+          <div class="kpi-card moss"><div class="kpi-label">Units This Month</div><div class="kpi-value">480</div><div class="kpi-change up">↑ 12%</div></div>
+          <div class="kpi-card charcoal"><div class="kpi-label">Artisans Active</div><div class="kpi-value">24</div><div class="kpi-change">Across 3 clusters</div></div>
+          <div class="kpi-card"><div class="kpi-label">Avg. Lead Time</div><div class="kpi-value">6d</div><div class="kpi-change up">↓ 1 day faster</div></div>
+        </div>
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card-header"><div class="dash-card-title">Active Batches</div></div>
+            <div class="orders-list">
+              <div class="order-row header"><span>Batch</span><span>Units</span><span>Status</span><span>ETA</span></div>
+              <div class="order-row">
+                <div><div class="order-id">Batch #48</div><div class="order-customer">Market Tote — Natural</div></div>
+                <div>120</div>
+                <div><span class="status-badge shipped">Weaving</span></div>
+                <div style="font-size:12px;color:var(--mid);">25 Jun</div>
+              </div>
+              <div class="order-row">
+                <div><div class="order-id">Batch #49</div><div class="order-customer">Botanica Tote</div></div>
+                <div>80</div>
+                <div><span class="status-badge pending">Dyeing</span></div>
+                <div style="font-size:12px;color:var(--mid);">28 Jun</div>
+              </div>
+              <div class="order-row">
+                <div><div class="order-id">Batch #50</div><div class="order-customer">La Flânerie Backpack</div></div>
+                <div>60</div>
+                <div><span class="status-badge paid">QC Check</span></div>
+                <div style="font-size:12px;color:var(--mid);">22 Jun</div>
+              </div>
             </div>
-            <span class="status-pill status-shipped" style="font-size:12px;padding:6px 14px;">Shipped</span>
           </div>
-
-          <!-- Timeline -->
-          <div style="position:relative;padding-left:28px;">
-            <div style="position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border);z-index:0;"></div>
-
-            <div class="track-step done" style="position:relative;margin-bottom:28px;">
-              <div style="position:absolute;left:-24px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--success);border:3px solid white;box-shadow:0 0 0 2px var(--success);z-index:1;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;">✓</div>
-              <div style="font-weight:700;font-size:14px;">Order Confirmed</div>
-              <div style="font-size:12px;color:var(--text-muted);">01 Jun 2024, 11:30 AM</div>
-              <div style="font-size:13px;margin-top:4px;">Your order has been confirmed and is being prepared.</div>
-            </div>
-
-            <div class="track-step done" style="position:relative;margin-bottom:28px;">
-              <div style="position:absolute;left:-24px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--success);border:3px solid white;box-shadow:0 0 0 2px var(--success);z-index:1;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;">✓</div>
-              <div style="font-weight:700;font-size:14px;">Picked Up</div>
-              <div style="font-size:12px;color:var(--text-muted);">02 Jun 2024, 09:15 AM</div>
-              <div style="font-size:13px;margin-top:4px;">Package picked up from Lapoche warehouse, Bangalore.</div>
-            </div>
-
-            <div class="track-step done" style="position:relative;margin-bottom:28px;">
-              <div style="position:absolute;left:-24px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--success);border:3px solid white;box-shadow:0 0 0 2px var(--success);z-index:1;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;">✓</div>
-              <div style="font-weight:700;font-size:14px;">In Transit</div>
-              <div style="font-size:12px;color:var(--text-muted);">03 Jun 2024, 06:40 PM</div>
-              <div style="font-size:13px;margin-top:4px;">Package in transit — Chennai Hub. AWB: BL8892014123</div>
-            </div>
-
-            <div class="track-step active" style="position:relative;margin-bottom:28px;">
-              <div style="position:absolute;left:-24px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--accent);border:3px solid white;box-shadow:0 0 0 2px var(--accent);z-index:1;"></div>
-              <div style="font-weight:700;font-size:14px;color:var(--primary);">Out for Delivery</div>
-              <div style="font-size:12px;color:var(--text-muted);">Today — Expected by 7 PM</div>
-              <div style="font-size:13px;margin-top:4px;">Your package is with the delivery agent. Track live →</div>
-            </div>
-
-            <div style="position:relative;opacity:0.4;">
-              <div style="position:absolute;left:-24px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--border);border:3px solid white;z-index:1;"></div>
-              <div style="font-weight:700;font-size:14px;">Delivered</div>
-              <div style="font-size:12px;color:var(--text-muted);">Expected: 05 Jun 2024</div>
+          <div class="dash-card">
+            <div class="dash-card-header"><div class="dash-card-title">Artisan Clusters</div></div>
+            <div class="top-products">
+              <div class="top-product-row">
+                <div class="top-product-icon">📍</div>
+                <div class="top-product-info"><div class="top-product-name">Kolkata Cluster</div><div class="top-product-sold">12 artisans · 3 batches</div></div>
+                <div class="top-product-rev" style="font-size:12px;">Active</div>
+              </div>
+              <div class="top-product-row">
+                <div class="top-product-icon">📍</div>
+                <div class="top-product-info"><div class="top-product-name">Murshidabad Cluster</div><div class="top-product-sold">8 artisans · 2 batches</div></div>
+                <div class="top-product-rev" style="font-size:12px;">Active</div>
+              </div>
+              <div class="top-product-row">
+                <div class="top-product-icon">📍</div>
+                <div class="top-product-info"><div class="top-product-name">Krishnanagar Unit</div><div class="top-product-sold">4 artisans · 1 batch</div></div>
+                <div class="top-product-rev" style="font-size:12px;">Active</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div>
-        <div class="form-card mb-2">
-          <div style="font-weight:700;margin-bottom:12px;">Items in Order</div>
-          <div style="display:flex;gap:12px;margin-bottom:12px;">
-            <div style="width:60px;height:60px;background:#f1f5f9;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">💼</div>
-            <div><div style="font-size:14px;font-weight:600;">Classic Slim Wallet</div><div style="font-size:12px;color:var(--text-muted);">Black · Qty: 2</div><div style="font-size:14px;font-weight:700;color:var(--primary);">₹1,198</div></div>
-          </div>
-          <button class="btn btn-primary w-full" style="justify-content:center;font-size:13px;padding:10px;">Download Invoice 📄</button>
+      <!-- FINANCE -->
+      <div class="dash-view" id="dash-finance">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Finance</div><div class="dash-date">FY 2025–26</div></div>
+          <button class="btn-primary">Download P&L</button>
         </div>
-
-        <div class="form-card">
-          <div style="font-weight:700;margin-bottom:12px;">Delivery Address</div>
-          <div style="font-size:14px;line-height:1.7;color:var(--text-muted);">
-            <strong style="color:var(--text);">Rahul Sharma</strong><br>
-            42, MG Road, Koramangala<br>Bangalore — 560001, Karnataka<br>
-            📞 +91 98765 43210
+        <div class="fin-grid">
+          <div class="fin-card">
+            <div class="fin-card-title">Total Revenue</div>
+            <div class="fin-value">₹ 68.4L</div>
+            <div class="fin-sub">↑ 24% YoY</div>
+          </div>
+          <div class="fin-card">
+            <div class="fin-card-title">Net Profit</div>
+            <div class="fin-value">₹ 18.2L</div>
+            <div class="fin-sub">26.6% margin</div>
+          </div>
+          <div class="fin-card">
+            <div class="fin-card-title">Total Expenses</div>
+            <div class="fin-value">₹ 50.2L</div>
+            <div class="fin-sub">Raw material 42%</div>
+          </div>
+        </div>
+        <div class="fin-detail">
+          <div class="dash-card-header">
+            <div class="dash-card-title">Expense Breakdown</div>
+          </div>
+          <div class="expense-rows">
+            <div class="expense-row">
+              <div class="expense-label">Raw Material (Jute)</div>
+              <div class="expense-bar-wrap"><div class="expense-bar" style="width:42%"></div></div>
+              <div class="expense-value">₹ 21.1L</div>
+            </div>
+            <div class="expense-row">
+              <div class="expense-label">Labour & Artisans</div>
+              <div class="expense-bar-wrap"><div class="expense-bar" style="width:28%;background:var(--moss)"></div></div>
+              <div class="expense-value">₹ 14.1L</div>
+            </div>
+            <div class="expense-row">
+              <div class="expense-label">Shipping & Logistics</div>
+              <div class="expense-bar-wrap"><div class="expense-bar" style="width:14%;background:var(--charcoal)"></div></div>
+              <div class="expense-value">₹ 7.0L</div>
+            </div>
+            <div class="expense-row">
+              <div class="expense-label">Marketing</div>
+              <div class="expense-bar-wrap"><div class="expense-bar" style="width:10%;background:#9A8A78"></div></div>
+              <div class="expense-value">₹ 5.0L</div>
+            </div>
+            <div class="expense-row">
+              <div class="expense-label">Operations & Overhead</div>
+              <div class="expense-bar-wrap"><div class="expense-bar" style="width:6%;background:var(--burlap)"></div></div>
+              <div class="expense-value">₹ 3.0L</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- ============================== WISHLIST ============================== -->
-<div class="page" id="page-wishlist">
-  <div class="main-wrapper">
-    <h2 style="margin-bottom:20px;">❤️ My Wishlist (<span id="wishlistCount">0</span> items)</h2>
-    <div class="product-grid" id="wishlistProducts"></div>
-    <div id="wishlistEmpty" style="text-align:center;padding:60px;display:none;">
-      <div style="font-size:48px;margin-bottom:16px;">❤️</div>
-      <h3 style="margin-bottom:8px;">Your wishlist is empty</h3>
-      <p style="color:var(--text-muted);margin-bottom:20px;">Save items you love for later</p>
-      <button class="btn btn-primary" onclick="showPage('shop')">Browse Products</button>
-    </div>
-  </div>
-</div>
-
-<!-- ============================== ADMIN DASHBOARD ============================== -->
-<div class="page" id="page-admin-dashboard">
-  <div class="admin-layout">
-    <aside class="admin-sidebar">
-      <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.1);">
-        <div style="font-size:15px;font-weight:700;color:var(--accent);">Lapoche Admin</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.5);">Operations Panel</div>
+      <!-- PAYOUTS -->
+      <div class="dash-view" id="dash-payouts">
+        <div class="dash-topbar">
+          <div><div class="dash-page-title">Payouts</div><div class="dash-date">June 2026</div></div>
+          <button class="btn-primary">Process Payouts</button>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card gold"><div class="kpi-label">Due This Week</div><div class="kpi-value">₹3.2L</div><div class="kpi-change">24 payees</div></div>
+          <div class="kpi-card moss"><div class="kpi-label">Processed MTD</div><div class="kpi-value">₹9.8L</div><div class="kpi-change up">On schedule</div></div>
+          <div class="kpi-card charcoal"><div class="kpi-label">Artisan Wages</div><div class="kpi-value">₹1.4L</div><div class="kpi-change">This week</div></div>
+          <div class="kpi-card"><div class="kpi-label">Vendor Payments</div><div class="kpi-value">₹1.8L</div><div class="kpi-change">3 vendors</div></div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-header"><div class="dash-card-title">Pending Payouts</div></div>
+          <div class="orders-list">
+            <div class="order-row header"><span>Payee</span><span>Amount</span><span>Type</span><span>Due</span></div>
+            <div class="order-row">
+              <div><div class="order-id">Kolkata Weavers Co-op</div><div class="order-customer">12 artisans</div></div>
+              <div>₹ 68,000</div>
+              <div><span class="status-badge pending">Wages</span></div>
+              <div style="font-size:12px;color:var(--mid);">23 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">Bengal Jute Mills</div><div class="order-customer">Supplier</div></div>
+              <div>₹ 1,12,400</div>
+              <div><span class="status-badge pending">Materials</span></div>
+              <div style="font-size:12px;color:var(--mid);">24 Jun</div>
+            </div>
+            <div class="order-row">
+              <div><div class="order-id">FastShip Logistics</div><div class="order-customer">Courier partner</div></div>
+              <div>₹ 38,200</div>
+              <div><span class="status-badge paid">Paid</span></div>
+              <div style="font-size:12px;color:var(--mid);">20 Jun</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sidebar-section">Main</div>
-      <a href="#" class="active" onclick="showAdmin('dashboard')">📊 Dashboard</a>
-      <a href="#" onclick="showAdmin('products')">📦 Products</a>
-      <a href="#" onclick="showAdmin('orders')">🛒 Orders</a>
-      <a href="#" onclick="showAdmin('customers')">👥 Customers</a>
-      <div class="sidebar-section">Operations</div>
-      <a href="#" onclick="showAdmin('inventory')">🏭 Inventory</a>
-      <a href="#" onclick="showAdmin('shipping')">🚚 Shipping</a>
-      <a href="#" onclick="showAdmin('returns')">↩️ Returns</a>
-      <div class="sidebar-section">Finance</div>
-      <a href="#" onclick="showAdmin('accounting')">📒 Accounts</a>
-      <a href="#" onclick="showAdmin('gst')">🧾 GST & Tax</a>
-      <a href="#" onclick="showAdmin('payouts')">💸 Payouts</a>
-      <div class="sidebar-section">Marketing</div>
-      <a href="#" onclick="showAdmin('coupons')">🎟️ Coupons</a>
-      <a href="#" onclick="showAdmin('banners')">🖼️ Banners</a>
-      <div class="sidebar-section">Settings</div>
-      <a href="#" onclick="showAdmin('settings')">⚙️ Settings</a>
-      <a href="#" onclick="showPage('home')">🏪 View Store</a>
-    </aside>
 
-    <div class="admin-content" id="adminContent">
-      <!-- Dashboard loaded by JS -->
     </div>
   </div>
-</div>
+</section>
 
-<!-- ===== TOAST NOTIFICATION ===== -->
-<div class="toast" id="toast">✅ Done!</div>
-
-<!-- ===== MODAL ===== -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-header">
-      <strong id="modalTitle">Add Product</strong>
-      <button class="btn-close" onclick="closeModal()">×</button>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-hero">
+      <div class="about-text">
+        <p class="hero-eyebrow">Our Story</p>
+        <h1 class="about-title">A bag<br>made with<br><em style="font-style:italic;color:var(--moss);">intention.</em></h1>
+        <div class="hero-rule"></div>
+        <p class="about-body">La Poche began in 2019 with a single loom in Murshidabad and a belief that everyday objects deserve to be made beautifully. We work directly with artisan clusters across West Bengal, paying fair wages and keeping batches small.</p>
+        <p class="about-body">Every bag is woven by hand, QC'd by eye, and shipped in packaging that breaks down in your compost bin. No middlemen, no mass production.</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-inner">🧺</div>
+      </div>
     </div>
-    <div class="modal-body" id="modalBody"></div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" style="border-color:var(--border);color:var(--text);" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="showToast('✅ Saved successfully!');closeModal()">Save</button>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌿</div>
+        <div class="value-title">Sustainably Sourced</div>
+        <div class="value-desc">Our jute comes from certified farms in West Bengal. It grows with minimal water, no pesticides, and sequesters carbon as it grows.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-title">Fairly Made</div>
+        <div class="value-desc">We pay above-market wages to our 24 artisans, provide health benefits, and reinvest 5% of revenue into community skill-building.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">♻️</div>
+        <div class="value-title">Zero Plastic</div>
+        <div class="value-desc">All our packaging — bags, mailers, tissue, tape — is either recycled, recyclable, or compostable. Nothing enters the conversation in plastic.</div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<script src="app.js"></script>
+<script src="lapoche.js"></script>
 </body>
 </html>
